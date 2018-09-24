@@ -9,7 +9,6 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class AlertMessageComponent implements OnInit {
 
-
   @Input()
   public alerts: Array<IAlertMessage> = [];
 
