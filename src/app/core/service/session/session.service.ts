@@ -17,7 +17,6 @@ export class SessionService {
     public auth: Auth,
     private permissionService: NgxPermissionsService,
     private router: Router) {
-    console.log('SESSION SERVICE');
   }
 
   start(): Promise<boolean> {

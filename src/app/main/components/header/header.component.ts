@@ -14,7 +14,6 @@ export class HeaderComponent implements OnInit {
   constructor(private sessionService: SessionService) {
     this.sessionService.getMe().subscribe(data => {
       this.user = data;
-      console.log('construck header user', this.user);
     });
   }
 

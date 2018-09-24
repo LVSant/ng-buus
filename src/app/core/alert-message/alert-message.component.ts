@@ -18,9 +18,6 @@ export class AlertMessageComponent implements OnInit {
 
   ngOnInit() {
     this.alerts = this.alertMessage.alerts;
-    this.alertMessage.bSubject.subscribe(value => {
-      console.log('VALUE SUBS', value);
-    });
   }
 
   public closeAlert(alert: IAlertMessage) {

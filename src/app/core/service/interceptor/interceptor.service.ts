@@ -34,13 +34,9 @@ export class InterceptorService implements HttpInterceptor {
     return next.handle(request)
       .pipe(
         tap(event => {
-          if (event instanceof HttpResponse) {
-            console.log('ok');
-          }
-          console.log('EVENT ', event);
+          // sem erros
         }, error => {
           this.alertMessage.addAlert({ type: 'danger', message: error });
-          console.error('ERROR: ', error);
         })
       );
   }

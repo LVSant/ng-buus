@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  ApiURL: 'http://localhost:8080'
+  ApiURL: 'https://buus-backend.herokuapp.com'
 };
