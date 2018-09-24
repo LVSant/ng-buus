@@ -30,6 +30,7 @@ export class SessionService {
             resolve(true);
           },
           error => {
+            console.log('SESSION ERROR ', error);
             resolve(false);
           }
         );

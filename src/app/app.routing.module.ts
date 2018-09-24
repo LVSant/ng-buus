@@ -8,7 +8,7 @@ const appRoutes: Routes = [
   {
     path: '', canActivate: [AppGuard], children: [
       {
-        path: 'auth', loadChildren: 'app/auth/auth.module#AuthModule', canActivateChild: [NgxPermissionsGuard],
+        path: 'auth', loadChildren: 'app/auth/auth.module#AuthModule', canActivate: [NgxPermissionsGuard],
         data: {
           Permissions: {
             except: ['COOPERATIVA', 'MOTORISTA'],
@@ -17,7 +17,7 @@ const appRoutes: Routes = [
         }
       },
       {
-        path: 'buus', loadChildren: 'app/main/main.module#MainModule', canActivateChild: [NgxPermissionsGuard],
+        path: 'buus', loadChildren: 'app/main/main.module#MainModule', canActivate: [NgxPermissionsGuard],
         data: {
           permissions: {
             only: ['COOPERATIVA', 'MOTORISTA'],
