@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">THE SISTEMA</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+    aria-label="Toggle navigation">
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <div class="navbar-text" *ngIf="user">
+          <div *ngIf="user.role === 'MOTORISTA'">
+            <a class="nav-link" href="#">Meus Atendimentos </a>
+          </div>
+          <div *ngIf="user.role === 'COOPERATIVA'">
+            <a class="nav-link" href="#">Atendimentos da Cooperativa</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <span class="navbar-text" *ngIf="user">
+      <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+      Olá,
+        <b> {{user.name}} </b>
+      <a href=# (click)="logout()" class="fa fa-sign-out" aria-hidden="true"></a>
+    </span>
+  </div>
+</nav>
