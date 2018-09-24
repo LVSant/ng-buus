@@ -1,0 +1,18 @@
+<div class="wrapper">
+  <form class="form-signin">
+    <h2 class="form-signin-heading text-center">Login</h2>
+    <input type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" class="form-control" name="loginUsername" placeholder="Email Address"
+      required="" (blur)="setEmailFocus(false)" (focus)="setEmailFocus(true)" [(ngModel)]="Email" required ngModel #emailref="ngModel"
+    />
+
+    <div [hidden]="!emailref.errors?.pattern">
+      <div *ngIf="emailref.errors && (emailref.touched || emailref.dirty)" class="alert alert-warning">
+        <h5>O email digitado nao é valido</h5>
+      </div>
+    </div>
+
+    <input type="password" class="form-control" name="password" placeholder="Password" required="" (blur)="setPasswordFocus(false)"
+      (focus)="setPasswordFocus(true)" [(ngModel)]="Password" required/>
+    <button class="btn btn-lg btn-primary btn-block" (keyup.enter)="login()" (click)="login()" type="button">Login</button>
+  </form>
+</div>
