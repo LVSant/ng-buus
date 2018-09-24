@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">THE SISTEMA</a>
+  <a class="navbar-brand" [routerLink]="['/']">THE SISTEMA</a>
   <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -7,10 +7,10 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <ng-template ngxPermissionsOnly="MOTORISTA">
-          <a class="nav-link" href="#">Meus Atendimentos </a>
+          <a class="nav-link" [routerLink]="['/buus']">Meus Atendimentos </a>
         </ng-template>
         <ng-template ngxPermissionsOnly="COOPERATIVA">
-          <a class="nav-link" href="#">Atendimentos da Cooperativa</a>
+          <a class="nav-link" [routerLink]="['/buus']">Atendimentos da Cooperativa</a>
         </ng-template>
       </li>
 
@@ -20,7 +20,7 @@
         <a class="fa fa-user-circle-o" aria-hidden="true"></a>
         Olá,
         <b> {{user.name}} </b>
-        <a href="#" (click)="logout()" class="fa fa-sign-out" aria-hidden="true"></a>
+        <a [routerLink]="['/auth']" (click)="logout()" class="fa fa-sign-out" aria-hidden="true"></a>
       </span>
     </li>
   </div>

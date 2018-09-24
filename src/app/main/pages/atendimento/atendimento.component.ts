@@ -21,22 +21,14 @@ export class AtendimentoComponent implements OnInit {
   filterChanged(filterData: any) {
     this.atendimentoService.getAtendimentosFilter(filterData)
       .subscribe(data => {
-        if (data) {
-          this.dados = data.data;
-        } else {
-          this.alertMessage.addAlert({ type: 'warning', message: 'Nenhum dado encontrado para os filtros aplicados' });
-        }
+        this.dados = data ? data.data : new Array<IAtendimento>();
       });
   }
 
   ngOnInit() {
     this.atendimentoService.getAtendimentos().subscribe(
       data => {
-        if (data) {
-          this.dados = data.data;
-        } else {
-          this.alertMessage.addAlert({ type: 'warning', message: 'Nenhum dado encontrado para os filtros aplicados' });
-        }
+        this.dados = data ? data.data : new Array<IAtendimento>();
       });
   }
 
