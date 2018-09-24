@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
 
-  private user: IUser;
-  private navbarOpen = false;
+  public user: IUser;
+  public navbarOpen = false;
 
 
   constructor(private authService: AuthService,
