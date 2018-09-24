@@ -1,4 +1,3 @@
-import { AlertMessageService } from 'app/core/alert-message/alert-message.service';
 import { AtendimentoService } from './atendimento.service';
 import { Component, OnInit } from '@angular/core';
 import { IAtendimento } from 'app/model';
@@ -12,8 +11,7 @@ export class AtendimentoComponent implements OnInit {
 
 
   constructor(
-    private atendimentoService: AtendimentoService,
-    private alertMessage: AlertMessageService) {
+    private atendimentoService: AtendimentoService) {
   }
 
   public dados: IAtendimento[];
