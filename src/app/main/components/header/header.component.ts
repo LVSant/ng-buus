@@ -1,27 +1,29 @@
 import { AuthService, SessionService } from 'app/core/service';
 import { Component, OnInit } from '@angular/core';
 import { IUser } from '../../../model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
   public user: IUser;
 
-  constructor(private sessionService: SessionService) {
-    this.sessionService.getMe().subscribe(data => {
+  constructor(private authService: AuthService,
+    private sessionService: SessionService,
+    private router: Router) {
+    this.authService.getMe().subscribe(data => {
       this.user = data;
     });
   }
 
   logout() {
-    this.sessionService.logout();
-  }
-
-  ngOnInit() {
+    this.sessionService.logout().then(() => {
+      this.router.navigate(['/auth']);
+    });
   }
 
 }

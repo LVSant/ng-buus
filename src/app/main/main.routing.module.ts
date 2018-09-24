@@ -6,7 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const atendimentoRoutes: Routes = [
   {
-    path: '', component: MainComponent, children: [
+    path: '', component: MainComponent,  children: [
       { path: 'atendimento', component: AtendimentoComponent },
       { path: '', redirectTo: 'atendimento', pathMatch: 'full' },
       { path: '**', redirectTo: 'atendimento', pathMatch: 'full' }

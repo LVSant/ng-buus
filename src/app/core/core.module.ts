@@ -6,9 +6,9 @@ import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import * as Services from './service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { NgxPermissionsModule } from 'ngx-permissions';
 import { Ng2UiAuthModule } from 'ng2-ui-auth';
 import { RouterModule } from '@angular/router';
+import { NgxPermissionsModule } from 'ngx-permissions';
 
 @NgModule({
   imports: [
@@ -17,7 +17,6 @@ import { RouterModule } from '@angular/router';
     HttpClientModule,
     FormsModule,
     RouterModule,
-    NgxPermissionsModule.forRoot(),
     Ng2UiAuthModule.forRoot({}),
     NgxPaginationModule,
   ],
@@ -27,7 +26,8 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     FormsModule,
     AlertMessageComponent,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgxPermissionsModule
   ],
   providers: [
     Services.AuthService,
@@ -37,6 +37,8 @@ import { RouterModule } from '@angular/router';
 })
 export class CoreModule {
   static forRoot(): ModuleWithProviders {
+
+
     return {
       ngModule: CoreModule,
       providers: [

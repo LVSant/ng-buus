@@ -1,3 +1,4 @@
+import { NgxPermissionsModule } from 'ngx-permissions';
 import { AlertMessageService } from 'app/core/alert-message/alert-message.service';
 import { AppGuard } from 'app/core/guard';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,6 +18,7 @@ registerLocaleData(localePtBr);
   ],
   imports: [
     BrowserModule,
+    NgxPermissionsModule.forRoot(),
     CoreModule.forRoot(),
     AppRoutingModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })

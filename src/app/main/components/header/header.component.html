@@ -6,21 +6,19 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <div class="navbar-text" *ngIf="user">
-          <div *ngIf="user.role === 'MOTORISTA'">
-            <a class="nav-link" href="#">Meus Atendimentos </a>
-          </div>
-          <div *ngIf="user.role === 'COOPERATIVA'">
-            <a class="nav-link" href="#">Atendimentos da Cooperativa</a>
-          </div>
-        </div>
+        <ng-template ngxPermissionsOnly="MOTORISTA">
+          <a class="nav-link" href="#">Meus Atendimentos </a>
+        </ng-template>
+        <ng-template ngxPermissionsOnly="COOPERATIVA">
+          <a class="nav-link" href="#">Atendimentos da Cooperativa</a>
+        </ng-template>
       </li>
     </ul>
     <span class="nav-link" *ngIf="user">
       <a class="fa fa-user-circle-o" aria-hidden="true"></a>
       Olá,
       <b> {{user.name}} </b>
-      <a href=# (click)="logout()" class="fa fa-sign-out" aria-hidden="true"></a>
+      <a href="#" (click)="logout()" class="fa fa-sign-out" aria-hidden="true"></a>
     </span>
   </div>
 </nav>

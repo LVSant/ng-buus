@@ -25,8 +25,8 @@ export class SessionService {
         this.authService.getMe().subscribe(
           data => {
             this.permissionService.flushPermissions();
+            this.permissionService.addPermission(data.role || 'MOTORISTA');
             this.me = data;
-            this.permissionService.loadPermissions(['COOPERATIVA', 'MOTORISTA']);
             resolve(true);
           },
           error => {
@@ -78,10 +78,6 @@ export class SessionService {
     this.permissionService.flushPermissions();
     this.me = null;
     this.router.navigate(['/auth']);
-  }
-
-  getMe() {
-    return this.authService.getMe();
   }
 
   get isAuthenticated() {
