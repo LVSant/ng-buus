@@ -26,7 +26,7 @@ export class SessionService {
           data => {
             this.permissionService.flushPermissions();
             this.me = data;
-            this.permissionService.loadPermissions([this.me['role'] || 'MOTORISTA']);
+            this.permissionService.loadPermissions(['COOPERATIVA', 'MOTORISTA']);
             resolve(true);
           },
           error => {
