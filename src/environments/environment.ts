@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  ApiURL: 'https://buus-backend.herokuapp.com'
+  ApiURL: 'http://localhost:8080'
 
 };
 

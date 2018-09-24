@@ -1,13 +1,30 @@
 import { AppGuard } from 'app/core/guard';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { NgxPermissionsGuard } from 'ngx-permissions';
 
 
 const appRoutes: Routes = [
   {
     path: '', canActivate: [AppGuard], children: [
-      { path: 'auth', loadChildren: 'app/auth/auth.module#AuthModule' },
-      { path: 'buus', loadChildren: 'app/main/main.module#MainModule' },
+      {
+        path: 'auth', loadChildren: 'app/auth/auth.module#AuthModule', canActivateChild: [NgxPermissionsGuard],
+        data: {
+          Permissions: {
+            except: ['COOPERATIVA', 'MOTORISTA'],
+            redirectTo: '/buus'
+          }
+        }
+      },
+      {
+        path: 'buus', loadChildren: 'app/main/main.module#MainModule', canActivateChild: [NgxPermissionsGuard],
+        data: {
+          permissions: {
+            only: ['COOPERATIVA', 'MOTORISTA'],
+            redirectTo: '/auth'
+          },
+        }
+      },
       { path: '', redirectTo: 'auth', pathMatch: 'full' },
       { path: '**', redirectTo: 'auth', pathMatch: 'full' }
     ]
