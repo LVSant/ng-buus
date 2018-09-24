@@ -10,7 +10,9 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
 
-  public user: IUser;
+  private user: IUser;
+  private navbarOpen = false;
+
 
   constructor(private authService: AuthService,
     private sessionService: SessionService,
@@ -24,6 +26,9 @@ export class HeaderComponent {
     this.sessionService.logout().then(() => {
       this.router.navigate(['/auth']);
     });
+  }
+  toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
   }
 
 }

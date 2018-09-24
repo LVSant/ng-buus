@@ -1,24 +1,27 @@
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th scope="col"># ID</th>
-            <th scope="col">PASSAGEIRO</th>
-            <th scope="col">ORIGEM</th>
-            <th scope="col">DESTINO</th>
-            <th scope="col">HORÁRIO PROGRAMADO</th>
-            <th scope="col">SITUAÇÃO</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let dado of dados | paginate: { itemsPerPage: 10, currentPage: p }">
-            <th scope="row">{{dado.id}}</th>
-            <td>{{dado.passageiro}}</td>
-            <td>{{dado.origem}}</td>
-            <td>{{dado.destino}}</td>
-            <td>{{dado.horario | date:'short'}}</td>
-            <td> <div [ngClass]="(dado.status === 'CONFIRMADO') ? 'confirmado' : (dado.status === 'PENDENTE') ? 'pendente' : 'cancelado'">{{dado.status}}</div>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col"># ID</th>
+                <th scope="col">PASSAGEIRO</th>
+                <th scope="col">ORIGEM</th>
+                <th scope="col">DESTINO</th>
+                <th scope="col">HORÁRIO PROGRAMADO</th>
+                <th scope="col">SITUAÇÃO</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let dado of dados | paginate: { itemsPerPage: 10, currentPage: p }">
+                <th scope="row">{{dado.id}}</th>
+                <td>{{dado.passageiro}}</td>
+                <td>{{dado.origem}}</td>
+                <td>{{dado.destino}}</td>
+                <td>{{dado.horario | date:'short'}}</td>
+                <td>
+                    <div [ngClass]="(dado.status === 'CONFIRMADO') ? 'confirmado' : (dado.status === 'PENDENTE') ? 'pendente' : 'cancelado'">{{dado.status}}</div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 <pagination-controls class="pagination" (pageChange)="p = $event"></pagination-controls>

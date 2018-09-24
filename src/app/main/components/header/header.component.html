@@ -1,9 +1,9 @@
-<nav class="navbar navbar-expand-lg navbar-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">THE SISTEMA</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-    aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
+    <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
+  <div class="collapse navbar-collapse show" [ngClass]="{ 'show': navbarOpen }">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <ng-template ngxPermissionsOnly="MOTORISTA">
@@ -13,12 +13,15 @@
           <a class="nav-link" href="#">Atendimentos da Cooperativa</a>
         </ng-template>
       </li>
+
     </ul>
-    <span class="nav-link" *ngIf="user">
-      <a class="fa fa-user-circle-o" aria-hidden="true"></a>
-      Olá,
-      <b> {{user.name}} </b>
-      <a href="#" (click)="logout()" class="fa fa-sign-out" aria-hidden="true"></a>
-    </span>
+    <li class="navbar-nav ml-auto">
+      <span class="nav-link" *ngIf="user">
+        <a class="fa fa-user-circle-o" aria-hidden="true"></a>
+        Olá,
+        <b> {{user.name}} </b>
+        <a href="#" (click)="logout()" class="fa fa-sign-out" aria-hidden="true"></a>
+      </span>
+    </li>
   </div>
 </nav>
