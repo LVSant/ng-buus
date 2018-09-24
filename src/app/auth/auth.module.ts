@@ -1,4 +1,4 @@
-import { CoreModule } from './../core/core.module';
+import { CoreModule } from 'app/core/core.module';
 import { NgModule } from '@angular/core';
 import { AuthRoutingModule } from './auth.routing.module';
 import { AuthComponent } from './auth.component';
