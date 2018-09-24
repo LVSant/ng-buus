@@ -1,0 +1,28 @@
+.pagination /deep/ .ngx-pagination .current {
+    background: #c3d7ea;
+    color: black
+}
+
+.pendente {
+    color: blue;
+    background: #dbdbdb;
+    font-weight: 800;
+    padding: 4px;
+    display: table-cell;
+}
+
+.cancelado {
+    color: red;
+    background: #dbdbdb;
+    font-weight: 800;
+    padding: 4px;
+    display: table-cell;
+}
+
+.confirmado {
+    color: green;
+    background: #dbdbdb;
+    font-weight: 800;
+    padding: 4px;
+    display: table-cell;
+}
