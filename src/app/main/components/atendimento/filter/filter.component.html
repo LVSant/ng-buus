@@ -2,7 +2,7 @@
     <div class="col m-2">
         <b class="mr-3">FILTRAR POR PERÍODO</b>
         <div ngbDropdown class="d-inline-block" #myDrop='ngbDropdown'>
-            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{todayString()}} </button>
+            <button class="btn btn-outline-primary flat" id="dropdownBasic1" ngbDropdownToggle>{{todayString()}} </button>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                 <ngb-datepicker #dp [displayMonths]="2" [dayTemplate]="t">
                 </ngb-datepicker>

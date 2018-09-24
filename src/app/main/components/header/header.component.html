@@ -11,15 +11,15 @@
             <a class="nav-link" href="#">Meus Atendimentos </a>
           </div>
           <div *ngIf="user.role === 'COOPERATIVA'">
-            <a class="nav-link" href="#">Atendimentos da Cooperativa</a>
+            <a class="nav-link" href="buus/atendimento">Atendimentos da Cooperativa</a>
           </div>
         </div>
       </li>
     </ul>
-    <span class="navbar-text" *ngIf="user">
-      <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+    <span class="nav-link" *ngIf="user">
+      <a class="fa fa-user-circle-o" aria-hidden="true"></a>
       Olá,
-        <b> {{user.name}} </b>
+      <b> {{user.name}} </b>
       <a href=# (click)="logout()" class="fa fa-sign-out" aria-hidden="true"></a>
     </span>
   </div>
